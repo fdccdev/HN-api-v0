@@ -49,8 +49,11 @@ const job = new CronJob("5 */3 * * *", () => {
 job.start();
 
 app.get('/api/v0/all-news', (req, res) => {
-   
     res.send({data: arrayNews});
+});
+
+app.get('/', (req, res) => {    
+    res.sendFile(__dirname + "/statusPage.html");
 });
 
 app.listen(PORT, () => {
